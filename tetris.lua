@@ -8,18 +8,17 @@ repeat if not a then repeat
 			p=({{0,0,0,0,0,15,15,0,0,15,15},{0,0,10,0,5,5,15,5,0,0,10,0,0,0,10},
 			{0,0,5,0,0,0,15,15,0,10,10,5},{0,0,0,5,0,10,15,5,0,0,15,10},
 			{0,4,5,8,0,10,15,10,0,2,5,1},{0,8,5,1,0,10,15,10,0,4,5,2},
-			{0,0,11,0,0,13,15,7,0,0,14}})[R(7)]
-			g=({1,2,4,8})[R(4)]
+			{0,0,11,0,0,13,15,7,0,0,14}})[R(7)] g=({1,2,4,8})[R(4)]
 		until o
 		a={}c=c or 0
 		for i=1,16 do a[math.floor((i-1)/4)*12+(i-1)%4+5]=o[i]end
 	end
 	if c then
-		for i=1,16 do W(i%4==1 and"\027["..2+math.floor(i/4)..";27H"or"",p[i]and p[i]/g%2>=1 and"\027[44m"or"","  \027[m")end
+		for i=1,16 do W(i%4==1 and"\027["..2+math.floor(i/4)..";27H"or"",p[i]and
+			p[i]/g%2>=1 and"\027[44m"or"","  \027[m")end
 		W("\027[7;27HLevel: ",u,"\027[9;27HLines: ",z,"\027[;H")
-		for i=25,276 do
-			W(f[i]and"\027["..44+f[i].."m"or a[i]and a[i]/r%2>=1 and"\027[44m"or"","  \027[m",i%12<1 and"\n"or"")
-		end
+		for i=25,276 do W(f[i]and"\027["..44+f[i].."m"or a[i]and a[i]/r%2>=1 and
+			"\027[44m"or"","  \027[m",i%12<1 and"\n"or"")end
 	else E"sleep .009"t=t+1 end
 	e=c=="q"h,s,b=0,r,a
 	if c==" "then E"sleep .005"else c=io.read(1)end
