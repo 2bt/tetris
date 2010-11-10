@@ -4,15 +4,11 @@ E"stty cbreak -echo min 0"W"\027[?25l\027[2J"f={}t,z,u=0,0,1
 for i=1,265,12 do f[i]=3 f[i+11]=3 end
 for i=266,275 do f[i]=3 end
 repeat if not a then repeat
-			o=p
-			p=({{0,0,0,0,0,15,15,0,0,15,15},
-			{0,0,10,0,5,5,15,5,0,0,10,0,0,0,10},
-			{0,0,5,0,0,0,15,15,0,10,10,5},
-			{0,0,0,5,0,10,15,5,0,0,15,10},
-			{0,4,5,8,0,10,15,10,0,2,5,1},
-			{0,8,5,1,0,10,15,10,0,4,5,2},
+			o=p r=g
+			p=({{0,0,0,0,0,15,15,0,0,15,15},{0,0,10,0,5,5,15,5,0,0,10,0,0,0,10},
+			{0,0,5,0,0,0,15,15,0,10,10,5},{0,0,0,5,0,10,15,5,0,0,15,10},
+			{0,4,5,8,0,10,15,10,0,2,5,1},{0,8,5,1,0,10,15,10,0,4,5,2},
 			{0,0,11,0,0,13,15,7,0,0,14}})[R(7)]
-			r=g
 			g=({1,2,4,8})[R(4)]
 		until o
 		a={}c=c or 0
@@ -22,8 +18,7 @@ repeat if not a then repeat
 		for i=1,16 do W(i%4==1 and"\027["..2+math.floor(i/4)..";27H"or"",p[i]and p[i]/g%2>=1 and"\027[44m"or"","  \027[m")end
 		W("\027[7;27HLevel: ",u,"\027[9;27HLines: ",z,"\027[;H")
 		for i=25,276 do
-			W(f[i]and"\027["..44+f[i].."m"or a[i]and a[i]/r%2>=1 and"\027[44m"or"","  \027[m")
-			if i%12==0 then W"\n"end
+			W(f[i]and"\027["..44+f[i].."m"or a[i]and a[i]/r%2>=1 and"\027[44m"or"","  \027[m",i%12<1 and"\n"or"")
 		end
 	else E"sleep .009"t=t+1 end
 	e=c=="q"h,s,b=0,r,a
@@ -45,18 +40,12 @@ repeat if not a then repeat
 				a=N
 				if not c then
 					for i=24,252,12 do
-						q=0
-						for j=2,11 do q=q+(f[i+j]and 1 or 0)end
+						q=0 for j=2,11 do q=q+(f[i+j]and 1 or 0)end
 						if q>9 then
 							u=1+math.floor(z/10)
 							z=z+1
 							for k=i,25,-1 do if f[k]~=3 then f[k+12]=f[k]end end
-						end
-					end
-				end
+				end end end
 				break
-			end
-		end
-	end
-until e
+end end end until e
 W"Game Over.\n\027[?25h"E"stty sane"
