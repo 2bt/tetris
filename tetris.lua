@@ -24,7 +24,7 @@ repeat if a==N then repeat
 	if c==" "then E"sleep .005"else c=io.read(1)end
 	r=c=="x"and r*2%15 or(c=="y"or"A"==c)and(r<2 and 8 or r/2)or r
 	if c=="B"or c==" "or t>53-u*5 then t,h,c=0,12,c or 0 end
-	a,l={},a
+	l=a a={}
 	for i,q in pairs(l)do a[i+(c=="C"and 1 or 0)-(c=="D"and 1 or 0)+h]=q end
 	for i=1,276 do
 		if f[i]and a[i]and a[i]/r%2>=1 then
