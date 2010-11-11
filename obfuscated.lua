@@ -19,4 +19,3 @@ or q/r%2>=1 and 0 end o=N if c==N then for i=24,252,12 do q=0 for j=2,11 do q=f[
 i+j]and q+1 or q end if q>9 then u=1+F(z/10)z=z+1 for k=i,25,-1 do if f[k]~=3
 then f[k+12]=f[k]end end end end end break end end end until e E"stty sane"W
 "Game Over.\n\027[?25h"
-
