@@ -1,6 +1,6 @@
 #!/usr/bin/lua
 math.randomseed(os.time())R=math.random E=os.execute E"stty cbreak -echo min 0"
-W=io.write W"\027[?25l\027[2J"F=math.floor S="  \027[m"M=math.mod f={}t=0 z=0 u=1
+W=io.write W"\027[?25l\027[2J"F=math.floor S="  \027[m"M=math.fmod f={}t=0 z=0 u=1 c=0
 for i=266,275 do f[i]=3 end
 for i=1,265,12 do f[i]=3 f[i+11]=3 end
 repeat
@@ -10,7 +10,7 @@ repeat
 		{0,0,5,0,0,0,15,15,0,10,10,5},{0,0,0,5,0,10,15,5,0,0,15,10},
 		{0,4,5,8,0,10,15,10,0,2,5,1},{0,8,5,1,0,10,15,10,0,4,5,2},
 		{0,0,11,0,0,13,15,7,0,0,14}})[R(7)]g=({1,2,4,8})[R(4)]
-		a={}c=c or 0
+		a={}
 		for i=0,15 do a[F(i/4)*12+M(i,4)+5]=o and o[i+1]end
 	end
 	if c then
